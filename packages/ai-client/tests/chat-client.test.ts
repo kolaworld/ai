@@ -2878,24 +2878,18 @@ describe('ChatClient', () => {
           type: EventType.TOOL_CALL_START,
           toolCallId: 'tool-1',
           toolCallName: 'show_notification',
-          toolName: 'show_notification',
-          model: 'test',
           timestamp: Date.now(),
         },
         {
           type: EventType.TOOL_CALL_ARGS,
           toolCallId: 'tool-1',
           delta: '{"message":42,"type":"info"}',
-          model: 'test',
           timestamp: Date.now(),
         },
         {
           type: EventType.TOOL_CALL_END,
           toolCallId: 'tool-1',
-          toolCallName: 'show_notification',
-          toolName: 'show_notification',
           input: { message: 42, type: 'info' },
-          model: 'test',
           timestamp: Date.now(),
         },
         {
@@ -2905,7 +2899,6 @@ describe('ChatClient', () => {
           content: errorResult,
           role: 'tool',
           state: 'output-error',
-          model: 'test',
           timestamp: Date.now(),
         },
         {
@@ -2913,7 +2906,6 @@ describe('ChatClient', () => {
           runId: 'run-1',
           threadId: 'thread-1',
           finishReason: 'tool_calls',
-          model: 'test',
           timestamp: Date.now(),
         },
       ]
