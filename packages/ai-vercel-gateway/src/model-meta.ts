@@ -104,6 +104,7 @@ export const VERCEL_GATEWAY_CHAT_MODELS = [
   'google/gemini-3.5-transcribe-live',
   'google/gemini-3.6-flash',
   'google/gemini-3.7-flash',
+  'google/gemini-3.8-flash',
   'google/gemini-omni-flash-preview',
   'google/gemma-4-26b-a4b-it',
   'google/gemma-4-31b-it',
@@ -112,6 +113,8 @@ export const VERCEL_GATEWAY_CHAT_MODELS = [
   'inclusionai/ling-3.0-flash',
   'inclusionai/ling-3.0-flash-fin',
   'inclusionai/ling-3.0-flash-fin-free',
+  'inclusionai/ling-3.0-flash-sante',
+  'inclusionai/ling-3.0-flash-sante-free',
   'interfaze/interfaze-beta',
   'kwaipilot/kat-coder-air-v2.5',
   'kwaipilot/kat-coder-pro-v1',
@@ -126,6 +129,8 @@ export const VERCEL_GATEWAY_CHAT_MODELS = [
   'meta/muse-spark-1.1',
   'meta/muse-spark-1.2',
   'meta/muse-spark-1.2-contributor',
+  'meta/muse-spark-1.3',
+  'meta/muse-spark-1.3-contributor',
   'minimax/minimax-m2',
   'minimax/minimax-m2.1',
   'minimax/minimax-m2.1-lightning',
@@ -211,6 +216,8 @@ export const VERCEL_GATEWAY_CHAT_MODELS = [
   'openai/gpt-5.6-sol-fast',
   'openai/gpt-5.6-terra',
   'openai/gpt-5.6-terra-fast',
+  'openai/gpt-6-astra',
+  'openai/gpt-6-astra-fast',
   'openai/gpt-oss-120b',
   'openai/gpt-oss-20b',
   'openai/gpt-oss-safeguard-120b',
@@ -278,7 +285,9 @@ export const VERCEL_GATEWAY_CHAT_MODELS = [
   'zai/glm-5.2',
   'zai/glm-5.2-fast',
   'zai/glm-5.3',
+  'zai/glm-5.3-fast',
   'zai/glm-5.3-flash',
+  'zai/glm-5.3-promo-50',
   'zai/glm-5v-turbo',
 ] as const
 
@@ -1130,6 +1139,16 @@ export type VercelGatewayChatModelProviderOptionsByName = {
       | 'reasoning'
       | 'include_reasoning'
     >
+  'google/gemini-3.8-flash': VercelGatewayCommonOptions &
+    Pick<
+      VercelGatewayBaseOptions,
+      | 'max_tokens'
+      | 'max_output_tokens'
+      | 'temperature'
+      | 'stop'
+      | 'reasoning'
+      | 'include_reasoning'
+    >
   'google/gemini-omni-flash-preview': VercelGatewayCommonOptions &
     Pick<
       VercelGatewayBaseOptions,
@@ -1196,6 +1215,26 @@ export type VercelGatewayChatModelProviderOptionsByName = {
       | 'include_reasoning'
     >
   'inclusionai/ling-3.0-flash-fin-free': VercelGatewayCommonOptions &
+    Pick<
+      VercelGatewayBaseOptions,
+      | 'max_tokens'
+      | 'max_output_tokens'
+      | 'temperature'
+      | 'stop'
+      | 'reasoning'
+      | 'include_reasoning'
+    >
+  'inclusionai/ling-3.0-flash-sante': VercelGatewayCommonOptions &
+    Pick<
+      VercelGatewayBaseOptions,
+      | 'max_tokens'
+      | 'max_output_tokens'
+      | 'temperature'
+      | 'stop'
+      | 'reasoning'
+      | 'include_reasoning'
+    >
+  'inclusionai/ling-3.0-flash-sante-free': VercelGatewayCommonOptions &
     Pick<
       VercelGatewayBaseOptions,
       | 'max_tokens'
@@ -1306,6 +1345,26 @@ export type VercelGatewayChatModelProviderOptionsByName = {
       | 'include_reasoning'
     >
   'meta/muse-spark-1.2-contributor': VercelGatewayCommonOptions &
+    Pick<
+      VercelGatewayBaseOptions,
+      | 'max_tokens'
+      | 'max_output_tokens'
+      | 'temperature'
+      | 'stop'
+      | 'reasoning'
+      | 'include_reasoning'
+    >
+  'meta/muse-spark-1.3': VercelGatewayCommonOptions &
+    Pick<
+      VercelGatewayBaseOptions,
+      | 'max_tokens'
+      | 'max_output_tokens'
+      | 'temperature'
+      | 'stop'
+      | 'reasoning'
+      | 'include_reasoning'
+    >
+  'meta/muse-spark-1.3-contributor': VercelGatewayCommonOptions &
     Pick<
       VercelGatewayBaseOptions,
       | 'max_tokens'
@@ -1999,6 +2058,24 @@ export type VercelGatewayChatModelProviderOptionsByName = {
       | 'reasoning'
       | 'include_reasoning'
     >
+  'openai/gpt-6-astra': VercelGatewayCommonOptions &
+    Pick<
+      VercelGatewayBaseOptions,
+      | 'max_tokens'
+      | 'max_output_tokens'
+      | 'stop'
+      | 'reasoning'
+      | 'include_reasoning'
+    >
+  'openai/gpt-6-astra-fast': VercelGatewayCommonOptions &
+    Pick<
+      VercelGatewayBaseOptions,
+      | 'max_tokens'
+      | 'max_output_tokens'
+      | 'stop'
+      | 'reasoning'
+      | 'include_reasoning'
+    >
   'openai/gpt-oss-120b': VercelGatewayCommonOptions &
     Pick<
       VercelGatewayBaseOptions,
@@ -2546,7 +2623,27 @@ export type VercelGatewayChatModelProviderOptionsByName = {
       | 'reasoning'
       | 'include_reasoning'
     >
+  'zai/glm-5.3-fast': VercelGatewayCommonOptions &
+    Pick<
+      VercelGatewayBaseOptions,
+      | 'max_tokens'
+      | 'max_output_tokens'
+      | 'temperature'
+      | 'stop'
+      | 'reasoning'
+      | 'include_reasoning'
+    >
   'zai/glm-5.3-flash': VercelGatewayCommonOptions &
+    Pick<
+      VercelGatewayBaseOptions,
+      | 'max_tokens'
+      | 'max_output_tokens'
+      | 'temperature'
+      | 'stop'
+      | 'reasoning'
+      | 'include_reasoning'
+    >
+  'zai/glm-5.3-promo-50': VercelGatewayCommonOptions &
     Pick<
       VercelGatewayBaseOptions,
       | 'max_tokens'
@@ -2664,6 +2761,7 @@ export type VercelGatewayModelInputModalitiesByName = {
   'google/gemini-3.5-transcribe-live': readonly ['text', 'audio']
   'google/gemini-3.6-flash': readonly ['text', 'image', 'document', 'video']
   'google/gemini-3.7-flash': readonly ['text', 'image', 'document', 'video']
+  'google/gemini-3.8-flash': readonly ['text', 'image', 'document', 'video']
   'google/gemini-omni-flash-preview': readonly [
     'text',
     'image',
@@ -2677,6 +2775,8 @@ export type VercelGatewayModelInputModalitiesByName = {
   'inclusionai/ling-3.0-flash': readonly ['text']
   'inclusionai/ling-3.0-flash-fin': readonly ['text']
   'inclusionai/ling-3.0-flash-fin-free': readonly ['text']
+  'inclusionai/ling-3.0-flash-sante': readonly ['text']
+  'inclusionai/ling-3.0-flash-sante-free': readonly ['text']
   'interfaze/interfaze-beta': readonly ['text', 'image', 'document']
   'kwaipilot/kat-coder-air-v2.5': readonly ['text', 'image']
   'kwaipilot/kat-coder-pro-v1': readonly ['text']
@@ -2691,6 +2791,8 @@ export type VercelGatewayModelInputModalitiesByName = {
   'meta/muse-spark-1.1': readonly ['text', 'image', 'document']
   'meta/muse-spark-1.2': readonly ['text', 'image', 'document']
   'meta/muse-spark-1.2-contributor': readonly ['text', 'image', 'document']
+  'meta/muse-spark-1.3': readonly ['text', 'image', 'document']
+  'meta/muse-spark-1.3-contributor': readonly ['text', 'image', 'document']
   'minimax/minimax-m2': readonly ['text']
   'minimax/minimax-m2.1': readonly ['text']
   'minimax/minimax-m2.1-lightning': readonly ['text']
@@ -2781,6 +2883,8 @@ export type VercelGatewayModelInputModalitiesByName = {
   'openai/gpt-5.6-sol-fast': readonly ['text', 'image', 'document']
   'openai/gpt-5.6-terra': readonly ['text', 'image', 'document']
   'openai/gpt-5.6-terra-fast': readonly ['text', 'image', 'document']
+  'openai/gpt-6-astra': readonly ['text', 'image', 'document']
+  'openai/gpt-6-astra-fast': readonly ['text', 'image', 'document']
   'openai/gpt-oss-120b': readonly ['text']
   'openai/gpt-oss-20b': readonly ['text']
   'openai/gpt-oss-safeguard-120b': readonly ['text']
@@ -2852,7 +2956,9 @@ export type VercelGatewayModelInputModalitiesByName = {
   'zai/glm-5.2': readonly ['text']
   'zai/glm-5.2-fast': readonly ['text']
   'zai/glm-5.3': readonly ['text']
+  'zai/glm-5.3-fast': readonly ['text']
   'zai/glm-5.3-flash': readonly ['text', 'image']
+  'zai/glm-5.3-promo-50': readonly ['text']
   'zai/glm-5v-turbo': readonly ['text', 'image', 'document']
 }
 
